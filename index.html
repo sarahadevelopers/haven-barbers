@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Haven Barber Shop & Spa | Premium Executive Grooming Kitengela</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0B0B0C;
+      color: #E0E1DD;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    /* === TYPOGRAPHY (Premium scale) === */
+    h1, h2, h3, .logo, .gold-accent {
+      font-family: 'Playfair Display', serif;
+    }
+    h1 {
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #D4AF37;
+    }
+    h2 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #D4AF37;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+    h3 {
+      font-size: 24px;
+      font-family: 'Cinzel', 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    body, p, li, .nav-links a, .footer-text, .input-label {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 36px; }
+      h2 { font-size: 26px; }
+      h3 { font-size: 24px; }
+      body, p { font-size: 14px; }
+    }
+
+    /* container utility */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    }
+    .btn-gold {
+      display: inline-block;
+      background: transparent;
+      border: 2px solid #D4AF37;
+      color: #D4AF37;
+      padding: 12px 32px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    }
+    .btn-gold:hover {
+      background: #D4AF37;
+      color: #0B0B0C;
+      border-color: #D4AF37;
+    }
+
+    /* === STICKY NAVBAR (glass) === */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11, 11, 12, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .call-icon a {
+      color: #D4AF37;
+      font-size: 22px;
+      transition: 0.2s;
+    }
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: #D4AF37;
+      text-decoration: none;
+      font-family: 'Playfair Display', serif;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links li a {
+      text-decoration: none;
+      color: #E0E1DD;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .nav-links li a:hover, .nav-links li a.active {
+      color: #D4AF37;
+    }
+    .nav-btn {
+      background: #D4AF37;
+      color: #0B0B0C !important;
+      padding: 8px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+    }
+    /* mobile toggle */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 6px;
+    }
+    .nav-toggle .bar {
+      width: 28px;
+      height: 2px;
+      background: #D4AF37;
+      transition: 0.3s;
+    }
+    @media (max-width: 992px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: #0B0B0C;
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+        transition: 0.4s ease;
+        box-shadow: -5px 0 30px rgba(0,0,0,0.8);
+        z-index: 999;
+      }
+      .nav-links.active {
+        right: 0;
+      }
+      .nav-links li a {
+        font-size: 18px;
+      }
+      .navbar .call-icon {
+        order: 1;
+      }
+      .navbar .logo {
+        order: 2;
+        margin: 0 auto;
+      }
+      .nav-toggle {
+        order: 3;
+      }
+    }
+
+    /* Hero Video */
+    .hero {
+      position: relative;
+      height: 90vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    .hero-content p {
+      font-size: 18px;
+      margin: 20px 0;
+    }
+    .trust-badge {
+      margin-top: 20px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: #D4AF37;
+    }
+
+    /* DUAL WING (50/50 hover split) */
+    .dual-wing {
+      display: flex;
+      height: 80vh;
+      overflow: hidden;
+    }
+    .wing {
+      flex: 1;
+      transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .wing::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      transition: 0.4s;
+    }
+    .wing:hover {
+      flex: 1.8;
+      filter: brightness(1.05);
+    }
+    .wing-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 40px;
+      max-width: 500px;
+    }
+    .wing-content h3 {
+      color: #D4AF37;
+      margin-bottom: 12px;
+    }
+    .menu-preview li {
+      list-style: none;
+      margin: 12px 0;
+      font-weight: 400;
+    }
+    .ghost-btn {
+      border: 1.5px solid #D4AF37;
+      padding: 10px 28px;
+      color: white;
+      margin-top: 20px;
+      display: inline-block;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .barber-wing { background-image: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1600&q=80'); }
+    .massage-wing { background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1600&q=80'); }
+    @media (max-width: 768px) {
+      .dual-wing { flex-direction: column; height: auto; }
+      .wing { height: 60vh; flex: none; width: 100%; }
+    }
+
+    /* 3 pillars */
+    .pillars-grid {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    .pillar {
+      text-align: center;
+      max-width: 300px;
+    }
+    .pillar i {
+      font-size: 48px;
+      color: #D4AF37;
+      margin-bottom: 20px;
+    }
+
+    /* Signature experience: slider + bento gallery */
+    .slider-container {
+      margin: 40px 0;
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .before-after {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid #D4AF37;
+    }
+    .before-img, .after-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .after-img {
+      width: 50%;
+      clip-path: inset(0 0 0 0%);
+      transition: 0.1s;
+    }
+    .slider-handle {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      width: calc(100% - 40px);
+      z-index: 3;
+    }
+    .bento-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .bento-item {
+      border-radius: 16px;
+      overflow: hidden;
+      transition: 0.3s;
+      background: #111;
+    }
+    .bento-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .bento-item:hover { transform: scale(1.02); box-shadow: 0 8px 20px rgba(212,175,55,0.2); }
+
+    /* Packages Cards */
+    .packages-grid {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .package-card {
+      background: #121212;
+      border: 1px solid #D4AF37;
+      border-radius: 16px;
+      padding: 32px;
+      width: 280px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .package-card h3 { margin-bottom: 12px; }
+    .package-card p { margin: 16px 0; }
+
+    /* Modal glass style */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(10px);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #121212;
+      border: 1px solid #D4AF37;
+      border-radius: 20px;
+      width: 85%;
+      max-width: 700px;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+      position: relative;
+    }
+    .modal-image {
+      flex: 1;
+      background-size: cover;
+      background-position: center;
+      min-height: 300px;
+    }
+    .modal-info {
+      flex: 1.5;
+      padding: 32px;
+    }
+    .close-modal {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #D4AF37;
+    }
+    @media (max-width: 700px) {
+      .modal-content { flex-direction: column; }
+    }
+
+    /* Contact Area split map + whatsapp form */
+    .contact-split {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .map-info {
+      flex: 1;
+    }
+    .booking-form-side {
+      flex: 1;
+      background: #0F0F10;
+      padding: 24px;
+      border-radius: 24px;
+    }
+    .booking-form-side input, .booking-form-side select {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #D4AF37;
+      padding: 12px 0;
+      margin-bottom: 24px;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .submit-btn {
+      background: #D4AF37;
+      color: #0B0B0C;
+      width: 100%;
+      border: none;
+      padding: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+      background: #050505;
+      padding: 48px 0 24px;
+      border-top: 1px solid #D4AF37;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    .footer-grid h4 { color: #D4AF37; margin-bottom: 20px; }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid #2a2a2a;
+      font-size: 12px;
+    }
+    .developer-link {
+      color: #D4AF37;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    /* Floating WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #25D366;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 999;
+      transition: 0.2s;
+      animation: pulse 1.5s infinite;
+    }
+    .whatsapp-float a { color: white; }
+    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.08); } 100% { transform: scale(1); } }
+  </style>
+</head>
+<body>
+
+<!-- STICKY NAVBAR -->
+<nav class="navbar">
+  <div class="nav-left">
+    <div class="call-icon">
+      <a href="tel:+254724899936"><i class="fas fa-phone-alt"></i></a>
+    </div>
+  </div>
+  <a href="#" class="logo">HAVEN</a>
+  <div class="nav-toggle" id="mobile-toggle">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#barber-suite">The Shop</a></li>
+    <li><a href="#massage-suite">The Sanctuary</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Find Us</a></li>
+    <li><a href="#contact" class="nav-btn">BOOK NOW</a></li>
+  </ul>
+</nav>
+
+<!-- HERO SECTION: video loop -->
+<section class="hero">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="https://cdn.coverr.co/videos/coverr-man-getting-a-haircut-5713/1080p.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>The Standard of Executive Grooming in Kitengela</h1>
+    <p>Precision cuts and world-class massage therapy at Kitengela Plaza, next to KCB.</p>
+    <a href="#contact" class="btn-gold">BOOK YOUR EXPERIENCE</a>
+    <div class="trust-badge">📍 Located at Kitengela Plaza, Next to KCB | 4.9★ Rated by 500+ Clients</div>
+  </div>
+</section>
+
+<!-- DUAL WING : Barbering / Massage -->
+<div class="dual-wing" id="barber-suite">
+  <div class="wing barber-wing">
+    <div class="wing-content">
+      <h3>THE BARBERING SUITE</h3>
+      <p>Classic Techniques. Modern Style.</p>
+      <ul class="menu-preview">
+        <li>✂️ Signature Precision Cuts</li>
+        <li>🪒 Royal Hot Towel Shave</li>
+        <li>🧔 Beard Sculpting & Lines</li>
+      </ul>
+      <a href="#contact" class="ghost-btn">VIEW FULL MENU</a>
+    </div>
+  </div>
+  <div class="wing massage-wing" id="massage-suite">
+    <div class="wing-content">
+      <h3>THE MASSAGE SANCTUARY</h3>
+      <p>A Haven for Total Recovery.</p>
+      <ul class="menu-preview">
+        <li>💆‍♂️ Deep Tissue Therapy</li>
+        <li>🌿 Aromatherapy Session</li>
+        <li>🏃 Sports Recovery Massage</li>
+      </ul>
+      <a href="#contact" class="ghost-btn">VIEW FULL MENU</a>
+    </div>
+  </div>
+</div>
+
+<!-- 3 PILLARS -->
+<section>
+  <div class="container">
+    <h2 class="gold-accent">The Haven Difference</h2>
+    <div class="pillars-grid">
+      <div class="pillar"><i class="fas fa-cut"></i><h3>Expert Craftsmanship</h3><p>Master barbers with 10+ years in executive grooming, precision fades & straight-razor mastery.</p></div>
+      <div class="pillar"><i class="fas fa-spa"></i><h3>Premium Ambiance</h3><p>Quiet, air-conditioned sanctuary — designed for modern professionals & total relaxation.</p></div>
+      <div class="pillar"><i class="fas fa-parking"></i><h3>Unmatched Convenience</h3><p>Secure parking at Kitengela Plaza + seamless 24/7 online booking. No queues, just luxury.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE EXPERIENCE: Before/After Slider + Bento Gallery -->
+<section id="gallery">
+  <div class="container">
+    <h2>The Signature Experience</h2>
+    <div class="slider-container">
+      <div class="before-after" id="ba-container">
+        <img class="before-img" src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800" alt="Before">
+        <img class="after-img" id="afterImg" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800" alt="After">
+        <input type="range" min="0" max="100" value="50" class="slider-handle" id="baSlider">
+      </div>
+      <p style="text-align:center; margin-top:12px;">Drag to reveal transformation ✨</p>
+    </div>
+    <div class="bento-gallery">
+      <div class="bento-item"><img src="https://images.unsplash.com/photo-1593702275687-f8b402bf1fb5?w=400" alt="haircut"></div>
+      <div class="bento-item"><img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=400" alt="massage"></div>
+      <div class="bento-item"><img src="https://images.unsplash.com/photo-1503951914875-3c47f5dc17da?w=400" alt="beard"></div>
+      <div class="bento-item"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400" alt="spa"></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXECUTIVE PACKAGES (MODAL) -->
+<section id="packages">
+  <div class="container">
+    <h2>Executive Packages</h2>
+    <div class="packages-grid">
+      <div class="package-card" data-package="ceo">
+        <h3>THE CEO RESET</h3>
+        <p>Signature Cut + 60min Deep Tissue Massage + Hot Towel Shave</p>
+        <button class="btn-gold view-package">VIEW PACKAGE</button>
+      </div>
+      <div class="package-card" data-package="weekend">
+        <h3>WEEKEND WARRIOR</h3>
+        <p>Fade/Trim + 30min Sports Recovery + Beard Grooming</p>
+        <button class="btn-gold view-package">VIEW PACKAGE</button>
+      </div>
+      <div class="package-card" data-package="signature">
+        <h3>THE HAVEN SIGNATURE</h3>
+        <p>3hr Head-to-Toe Luxury: Full Grooming + Aromatherapy + Scalp Massage</p>
+        <button class="btn-gold view-package">VIEW PACKAGE</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT: MAP + WHATSAPP BOOKING FORM -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-split">
+      <div class="map-info">
+        <h3>Find The Haven</h3>
+        <p>Kitengela Plaza, 1st Floor, Next to KCB Bank, Nairobi-Namanga Road</p>
+        <div class="map-wrapper" style="border-radius: 20px; overflow:hidden;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.500770183675!2d36.95931399999999!3d-1.4725044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f9ff74a7d0a29%3A0x8642cf9d8d1afccb!2sKitengela%20Plaza!5e0!3m2!1sen!2ske!4v1777981893551!5m2!1sen!2ske" width="100%" height="300" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div style="margin-top:20px;"><i class="fas fa-clock"></i> Mon-Sat: 8AM–9PM | Sun: 9AM–8PM</div>
+        <div><i class="fas fa-phone-alt"></i> <a href="tel:+254724899936" style="color:#D4AF37;">0724899936</a></div>
+      </div>
+
+      <div class="booking-form-side">
+        <h3>Reserve Your Sanctuary</h3>
+        <form id="bookingForm">
+          <input type="text" id="bookingName" placeholder="Your Full Name" required>
+          <select id="bookingService" required>
+            <option value="">Select Service</option>
+            <option value="Executive Cut & Style">Executive Cut & Style</option>
+            <option value="Deep Tissue Massage (60min)">Deep Tissue Massage (60min)</option>
+            <option value="The CEO Reset Package">The CEO Reset Package</option>
+            <option value="Weekend Warrior Package">Weekend Warrior Package</option>
+            <option value="Haven Signature">Haven Signature</option>
+          </select>
+          <input type="datetime-local" id="bookingDateTime" required>
+          <button type="button" id="sendWhatsAppBtn" class="submit-btn">SEND BOOKING REQUEST</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><h4>HAVEN</h4><p>Redefining Executive Grooming & Wellness at the heart of Kitengela.</p><div><i class="fab fa-instagram"></i> <i class="fab fa-facebook"></i> <i class="fab fa-tiktok"></i></div></div>
+      <div><h4>EXPLORE</h4><ul style="list-style:none;"><li>The Barbering Suite</li><li>Massage Sanctuary</li><li>Executive Packages</li><li>Our Story</li></ul></div>
+      <div><h4>LOCATION</h4><p>Kitengela Plaza, 1st Floor, Next to KCB Bank, Nairobi-Namanga Road.</p></div>
+      <div><h4>CONNECT</h4><p><i class="fas fa-phone"></i> 0724899936</p><a href="#" style="color:#D4AF37;">Chat with a Stylist</a></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="currentYear"></span> Haven Barber Shop & Spa. All Rights Reserved.</p>
+      <p>Designed & Developed By <a href="https://sarahadevelopers.co.ke" target="_blank" class="developer-link">Saraha Developers</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<div class="whatsapp-float">
+  <a href="https://wa.me/254724899936?text=Hi%20Haven!%20I'm%20at%20Kitengela%20Plaza%20and%20would%20like%20to%20inquire%20about%20your%20Barber%20%26%20Massage%20services." target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<!-- MODAL STRUCTURE (hidden) -->
+<div id="packageModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <div class="modal-image" id="modalImage"></div>
+    <div class="modal-info" id="modalInfo">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <div id="modalBreakdown"></div>
+      <button id="modalBookBtn" class="btn-gold" style="margin-top:20px;">SECURE THIS SLOT</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Mobile navbar toggle
+  const toggleBtn = document.getElementById('mobile-toggle');
+  const navLinks = document.getElementById('nav-links');
+  toggleBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    toggleBtn.classList.toggle('is-active');
+  });
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('active'));
+  });
+
+  // Before/After slider logic
+  const slider = document.getElementById('baSlider');
+  const afterImgDiv = document.getElementById('afterImg');
+  if(slider && afterImgDiv) {
+    slider.addEventListener('input', (e) => {
+      const val = e.target.value;
+      afterImgDiv.style.clipPath = `inset(0 0 0 ${100 - val}%)`;
+    });
+  }
+
+  // PACKAGE MODALS
+  const modal = document.getElementById('packageModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+  const modalBreakdown = document.getElementById('modalBreakdown');
+  const modalImageDiv = document.getElementById('modalImage');
+  const closeModalSpan = document.querySelector('.close-modal');
+  let currentPackage = '';
+
+  const packagesData = {
+    ceo: { title: "THE CEO RESET", desc: "Ultimate executive experience", breakdown: "⏱ 0-45min: Precision cut & styling\n⏱ 45-105min: Deep tissue rejuvenation\n⏱ Final 15min: Hot towel & facial steam\n🍸 Complimentary Espresso or Whiskey", img: "https://images.unsplash.com/photo-1507136566006-cfc505b114fc?w=500" },
+    weekend: { title: "WEEKEND WARRIOR", desc: "Active recovery + sharp look", breakdown: "✂️ Precision fade/trim\n💪 30-min sports massage\n🧔 Beard sculpting & hydrating mask", img: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=500" },
+    signature: { title: "THE HAVEN SIGNATURE", desc: "3-hour total transformation", breakdown: "💈 Master haircut + royal shave\n🌿 Full body aromatherapy massage\n💆‍♂️ Scalp & foot reflexology\n🥂 Champagne finish", img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=500" }
+  };
+
+  document.querySelectorAll('.view-package').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const card = btn.closest('.package-card');
+      const pkg = card.getAttribute('data-package');
+      currentPackage = pkg;
+      const data = packagesData[pkg];
+      modalTitle.innerText = data.title;
+      modalDesc.innerText = data.desc;
+      modalBreakdown.innerText = data.breakdown;
+      modalImageDiv.style.backgroundImage = `url(${data.img})`;
+      modalImageDiv.style.backgroundSize = "cover";
+      modal.style.display = "flex";
+    });
+  });
+  closeModalSpan.onclick = () => modal.style.display = "none";
+  window.onclick = (e) => { if(e.target === modal) modal.style.display = "none"; };
+  document.getElementById('modalBookBtn').addEventListener('click', () => {
+    let packageName = currentPackage ? packagesData[currentPackage].title : "Executive Package";
+    const phone = "254724899936";
+    const msg = `Hi Haven! I'm interested in booking the ${packageName}. Please call me to confirm my appointment.`;
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+    modal.style.display = "none";
+  });
+
+  // WhatsApp integrated booking form
+  document.getElementById('sendWhatsAppBtn').addEventListener('click', () => {
+    const name = document.getElementById('bookingName').value.trim();
+    const service = document.getElementById('bookingService').value;
+    const datetime = document.getElementById('bookingDateTime').value;
+    if(!name || !service || !datetime) { alert('Please fill all fields before booking.'); return; }
+    const phone = "254724899936";
+    const message = `BOOKING REQUEST:%0A*Name:* ${name}%0A*Service:* ${service}%0A*Date/Time:* ${datetime}%0A%0APlease call me on ${name} to confirm.`;
+    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+  });
+
+  // Dynamic footer year
+  document.getElementById('currentYear').innerHTML = new Date().getFullYear();
+</script>
+</body>
+</html>
